@@ -43,8 +43,8 @@
 
 * Container Virtualisierung mit **Docker**
 * Isolation durch Kernel Features
-  * Beschränkung des Zugriffs auf Resourcen (cGroups)
-  * Sandboxing (Kernel Namespaces)
+  * Beschränkung des Zugriffs auf Resourcen _(cGroups)_
+  * Sandboxing _(Kernel Namespaces)_
   * Eigene Netzwerk-Stacks je Container
 * Verringerter Overhead durch Wegfall des Gastsystems
   * Verringerter Resourcenverbrauch
@@ -53,26 +53,52 @@
 ---
 
 ## Wie funktioniert Docker
+### Die Bestandteile und ihre Funktion
+
++++
+
+### Docker Engine
+
++++
+
+### Images
+
++++
+
+### Container
+
++++
+
+### Volumes
+
++++
+
+### Netzwerk
 
 ---
 
 ## Lokale Nutzung
+### Befehle zur Steuerung von Docker
 
 ---
 
-## Images aus Dockerfiles
+## Images erstellen
+### Dockerfile, das Kochrezept
 
 ---
 
 ## Infrastruktur
+### Unterstützende Dienste in Cloud und on Premise
 
 ---
 
 ## Swarm
+### Skalierung durch Cluster
 
 ---
 
 ## Stolpersteine
+### Eigenarten und Wissenswertes
 
 ---
 
