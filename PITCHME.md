@@ -16,6 +16,7 @@
 ---
 
 ## Was ist Docker
+### Leichtgewichtige Conatiner Virtualisierung
 
 +++
 
@@ -29,27 +30,25 @@
 
 +++
 
-### Die Lösung
+### Die (mögliche) Lösung
 
 * Virtuelle Machinen
-
-#### Aber
-
 * Hoher Verbrauch von Resourcen
 * Hoher Overhead
+* Träges Starten und Stoppen von VMs
 
 +++
 
-### Die bessere Lösung
+### Die (bessere) Lösung
 
 * Container Virtualisierung mit **Docker**
 * Isolation durch Kernel Features
-** Beschränkung des Zugriffs auf Resourcen (cGroups)
-** Sandboxing (Kernel Namespaces)
-** Eigene Netzwerk-Stacks je Container
+  * Beschränkung des Zugriffs auf Resourcen (cGroups)
+  * Sandboxing (Kernel Namespaces)
+  * Eigene Netzwerk-Stacks je Container
 * Verringerter Overhead durch Wegfall des Gastsystems
-** Verringerter Resourcenverbrauch
-** Schnelles Starten und Stoppen von Containern
+  * Verringerter Resourcenverbrauch
+  * Schnelles Starten und Stoppen von Containern
 
 ---
 
