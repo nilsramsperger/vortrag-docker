@@ -6,7 +6,7 @@
 ## Agenda
 * Was ist Docker
 * Wie funktioniert Docker
-* Nutzung lokal
+* Lokale Nutzung
 * Images erstellen mit Dockerfiles
 * Docker Infrastruktur
 * Nutzung von Docker Swarm
@@ -15,4 +15,32 @@
 
 ---
 
-*tbd*
+## Was ist Docker
+
+---
+
+## Wie funktioniert Docker
+
+---
+
+## Lokale Nutzung
+
+---
+
+## Images aus Dockerfiles
+
+---
+
+## Infrastruktur
+
+---
+
+## Swarm
+
+---
+
+## Stolpersteine
+
+---
+
+## Sicherheit
