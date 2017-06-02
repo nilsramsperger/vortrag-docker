@@ -59,21 +59,69 @@
 
 ### Docker Engine
 
+* Läuft als Daemon auf dem Host-System
+* Verfügbar für Linux, Windows und OSX
+* Stellt Socket zur Ansteuerung zur Verfügung
+* Ansteuerung über Konsole oder andere Oberflächen
+  * Kitematic
+  * DockerCloud
+
 +++
 
 ### Images
+
+* Dateisystemabbild (Statische Daten)
+  * Laufzeitumgebung
+  * Programme
+* Werden auf BaseImages aufgesetzt
+  * Gängige Linux Distributionen
+  * Ubuntu, Debian und Alpine sind populär
 
 +++
 
 ### Container
 
+* Veränderbare Kopie eines Image
+* Konfiguration
+  * Volumes
+  * Netzwerk
+* Zustandsbehaftet
+
 +++
 
 ### Volumes
 
+* Persistente Speicherung von Daten
+  * Konfiguration bei Erstellung des Containers
+* Werden in Container Dateisystem eingehängt
+* Bleiben erhalten, wenn Container gelöscht wird
+* Dateiaustausch zwischen Containern
+
++++
+
+### Named Volumes
+
+* Volume wird über Namen identifiziert
+* Wird im Dateisystem des Hosts abgelegt
+* Verteilte Speicherung möglich
+
++++
+
+### Host Volumes
+
+* Es wird direkt ein Pfad auf dem Host verwendet
+* Einfacher Datenaustausch zwischen Host und Container möglich
+
 +++
 
 ### Netzwerk
+
+* Docker Engine erstellt virtuelles Netz auf Host
+* Jeder Container hat eigene IPv4 Adresse
+* Erreichbarkeit von Außen über automatische NAT
+  * Konfiguration bei Erstellung des Containers
+* IPv6 ist möglich, untergräbt aber das Prinzip der Transparenz
+  * Container sollten nach außen nicht sichtbar sein.
 
 ---
 
