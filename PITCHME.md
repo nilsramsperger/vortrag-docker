@@ -118,7 +118,7 @@
 
 * Docker Engine erstellt virtuelles Netz auf Host
 * Jeder Container hat eigene IPv4 Adresse
-* Erreichbarkeit von Außen über automatische NAT
+* Erreichbarkeit von außen über automatische NAT
   * Konfiguration bei Erstellung des Containers
 * IPv6 ist möglich, untergräbt aber das Prinzip der Transparenz
   * Container sollten nach außen nicht sichtbar sein.
@@ -132,13 +132,51 @@
 
 ### Interaktive Container
 
+* `docker run -it --name test ubuntu:latest`
+  * Startet einen neuen Ubuntu Container und verbindet auf dessen Console
+  * Das Image wird automatisch runtergeladen
+  * Mit `exit` wird der Container verlassen und beendet
+  * Der Container bleibt bestehen
+* `docker start -it test`
+  * Startet den Container erneut
+* `docker rm test`
+  * Löscht den Container
+
 +++
 
-### Dienst-Container
+### Einbinden von Volumes
+
++++
+
+### Container im Hintergrund
+
+* Containern kann beim Start ein Befehl übergeben werden, den sie ausführen
+* Der Container stoppt nach Ende des aufgerufenen Programms
+* Die Ausgaben des Programms werden im Docker Log gespeichert
+* `docker create --name test ubuntu:latest server`
+  * Erstellt einen neuen Container, der bei seinem Start das Programm `server` ausführt.
+  * Nach dem Ende des Programms stoppt der Container
+* `docker start test` startet den Container
+
++++
+
+### Freigeben von Ports
+
++++
+
+### Logs einsehen
+
+* `docker logs test`
+  * Listet alle Log-Einträge des Containers mit Namen `test` auf.
 
 +++
 
 ### Container verwalten
+
+* `docker ps -a` listet alle bestehenden Container auf
+* `docker ps` listet alle laufenden Container auf
+* `docker rm test` löscht den Container mit Namen `test`
+  * Wird ein Container ohne Namen erstellt, kann er über dessen ID adressiert werden. 
 
 +++
 
