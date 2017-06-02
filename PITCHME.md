@@ -152,13 +152,15 @@ docker rm test
 
 ### Container im Hintergrund
 
-* Containern kann beim Start ein Befehl übergeben werden, den sie ausführen
-* Der Container stoppt nach Ende des aufgerufenen Programms
-* Die Ausgaben des Programms werden im Docker Log gespeichert
-* `docker create --name test ubuntu:latest server`
-  * Erstellt einen neuen Container, der bei seinem Start das Programm `server` ausführt.
-  * Nach dem Ende des Programms stoppt der Container
-* `docker start test` startet den Container
+```
+docker create --name test ubuntu:latest server
+docker start test
+docker stop test
+```
+
+@[1](Erstellt einen Container, der beim Start das Programm `server` ausführt.)
+@[2](Startet den Container. Der Container stoppt automatisch bei Programmende.)
+@[3](Stoppt den Container.)
 
 +++
 
@@ -168,6 +170,7 @@ docker rm test
 
 ### Logs einsehen
 
+* Erzeugt das in einem Container laufende Programm Ausgaben, werden diese im Log gespeichert.
 * `docker logs test`
   * Listet alle Log-Einträge des Containers mit Namen `test` auf.
 
@@ -175,10 +178,15 @@ docker rm test
 
 ### Container verwalten
 
-* `docker ps -a` listet alle bestehenden Container auf
-* `docker ps` listet alle laufenden Container auf
-* `docker rm test` löscht den Container mit Namen `test`
-  * Wird ein Container ohne Namen erstellt, kann er über dessen ID adressiert werden. 
+```
+docker ps
+docker ps -a
+docker rm test
+```
+
+@[1](Es werden alle laufenden Container angezeigt)
+@[2](Es werden alle Container angezeigt)
+@[3](Löscht den Container mit Namen `test`. Ein Container ohne Namen kann über dessen ID adressiert werden.)
 
 +++
 
