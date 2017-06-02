@@ -132,15 +132,17 @@
 
 ### Interaktive Container
 
-* `docker run -it --name test ubuntu:latest`
-  * Startet einen neuen Ubuntu Container und verbindet auf dessen Console
-  * Das Image wird automatisch runtergeladen
-  * Mit `exit` wird der Container verlassen und beendet
-  * Der Container bleibt bestehen
-* `docker start -it test`
-  * Startet den Container erneut
-* `docker rm test`
-  * Löscht den Container
+```
+docker run -it --name test ubuntu:latest
+exit
+docker start -it test
+docker rm test
+```
+
+@[1](Startet einen neuen Ubuntu Container und verbindet auf dessen Console. Das Image wird automatisch runtergeladen.)
+@[2](Der Container wird verlassen und beendet)
+@[3](Startet den Container erneut)
+@[4](Löscht den Container)
 
 +++
 
