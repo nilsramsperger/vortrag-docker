@@ -149,12 +149,12 @@ docker rm test
 ### Einbinden von Volumes
 
 ```
-docker run -it --name test -v /path/on/host:/path/in/container ubuntu:latest
-docker run -it --name test -v volumeName:/path/in/container ubuntu:latest
+docker run -it --name test -v /dir1:/dir2 ubuntu:latest
+docker run -it --name test -v volName:/dir2 ubuntu:latest
 ```
 
-@[1](Bindet ein Verzeichnis vom Host an der gegebenen Stelle im Container ein.)
-@[2](Bindet das Volume `volumeName` an der gegbenen Stelle im Container ein.)
+@[1](Bindet `/dir1` vom Host als `/dir2` im Container ein.)
+@[2](Bindet das Volume `volName` als `/dir2` im Container ein.)
 
 +++
 
