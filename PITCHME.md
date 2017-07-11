@@ -81,7 +81,7 @@
 
 ### Container
 
-* Veränderbare Kopie eines Image
+* Instanz eines Image
 * Konfiguration
   * Volumes
   * Netzwerk
@@ -140,13 +140,21 @@ docker rm test
 ```
 
 @[1](Startet einen neuen Ubuntu Container und verbindet auf dessen Console. Das Image wird automatisch runtergeladen.)
-@[2](Der Container wird verlassen und beendet)
-@[3](Startet den Container erneut)
-@[4](Löscht den Container)
+@[2](Der Container wird verlassen und beendet.)
+@[3](Startet den Container erneut.)
+@[4](Löscht den Container.)
 
 +++
 
 ### Einbinden von Volumes
+
+```
+docker run -it --name test -v /path/on/host:/path/in/container ubuntu:latest
+docker run -it --name test -v volumeName:/path/in/container ubuntu:latest
+```
+
+@[1](Bindet ein Verzeichnis vom Host an der gegebenen Stelle im Container ein.)
+@[2](Bindet das Volume `volumeName` an der gegbenen Stelle im Container ein.)
 
 +++
 
@@ -166,6 +174,12 @@ docker stop test
 
 ### Freigeben von Ports
 
+```
+docker run -it --name test -p 8080:80 ubuntu:latest
+```
+
+@[1](Bindet den Port 80 des Containers an Pot 8080 des Host.)
+
 +++
 
 ### Logs einsehen
@@ -184,17 +198,35 @@ docker ps -a
 docker rm test
 ```
 
-@[1](Es werden alle laufenden Container angezeigt)
-@[2](Es werden alle Container angezeigt)
+@[1](Es werden alle laufenden Container angezeigt.)
+@[2](Es werden alle Container angezeigt.)
 @[3](Löscht den Container mit Namen `test`. Ein Container ohne Namen kann über dessen ID adressiert werden.)
 
 +++
 
 ### Images verwalten
 
+```
+docker images
+docker rmi imageName
+docker pull imageName
+```
+
+@[1](Listet alle lokalen Images auf.)
+@[2](Löscht das Image mit Namen `imageName`.)
+@[3](Lädt das Image mit Namen `imageName` von DockerHub.)
+
 +++
 
 ### Volumes verwalten
+
+```
+docker volume ls
+docker volume rm volName
+```
+
+@[1](Listet alle Volumes auf.)
+@[2](Löscht das Volume mit Namen `volName`.)
 
 ---
 
