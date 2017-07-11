@@ -175,7 +175,7 @@ docker stop test
 ### Freigeben von Ports
 
 ```
-docker run -it --name test -p 8080:80 ubuntu:latest
+docker create --name test -p 8080:80 ubuntu:latest
 ```
 
 @[1](Bindet den Port 80 des Containers an Pot 8080 des Host.)
