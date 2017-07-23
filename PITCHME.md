@@ -187,7 +187,7 @@ docker create --name test -p 8080:80 ubuntu:latest
 
 ### Logs einsehen
 
-* Erzeugt das in einem Container laufende Programm Ausgaben, werden diese im Log gespeichert.
+* Erzeugt das in einem Container primär laufende Programm _(PID 1)_ Ausgaben, werden diese im Log gespeichert.
 * `docker logs test`
   * Listet alle Log-Einträge des Containers mit Namen `test` auf.
 
