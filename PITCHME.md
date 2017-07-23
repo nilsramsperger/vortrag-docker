@@ -238,6 +238,24 @@ docker volume rm volName
 
 +++
 
+### Manuelle Erstellung
+
+```
+docker run -it --name baustelle ubuntu:latest
+apt-get install ...
+exit
+docker commit baustelle maxmustermann/meinimage:latest
+docker run -it --name meinContainer maxmustermann/meinimage:latest
+```
+
+@[1](Startet einen interaktiven Container mit Namen `baustelle`.)
+@[2](Beliebige Befehle im Container ausführen um benötigte Programme zu installieren und einzurichten.)
+@[3](Beendet den Container)
+@[4](Speichert den Container `baustelle` im Namespace `maxmustermann` unter dem Namen `meinimage` mit dem Tag `latest`.)
+@[5](Erstellt einen neuen interaktiven Container aus dem erstellten Image.)
+
++++
+
 ### Dockerfile
 
 +++
