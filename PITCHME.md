@@ -181,7 +181,7 @@ docker stop test
 docker create --name test -p 8080:80 ubuntu:latest
 ```
 
-@[1](Bindet den Port 80 des Containers an Pot 8080 des Host.)
+@[1](Bindet den Port 80 des Containers an Port 8080 des Host.)
 
 +++
 
