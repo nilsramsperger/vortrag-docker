@@ -96,6 +96,9 @@
 * Werden in Container Dateisystem eingehängt
 * Bleiben erhalten, wenn Container gelöscht wird
 * Dateiaustausch zwischen Containern
+* Sonderformen
+  * Named Volumes
+  * Host Volumes
 
 +++
 
