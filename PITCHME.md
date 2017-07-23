@@ -258,13 +258,50 @@ docker run -it --name meinContainer maxmustermann/meinimage:latest
 
 ### Dockerfile
 
+* Eine 
+* Bestandteile
+  * Base Image
+  * Befehle zum Aufbau des Image
+    * Ausführen von Befehlen
+    * Kopieren von Dateien
+  * Konfiguration des Image
+    * Volumes
+    * Ports
+    * Startbefehl
+
 +++
 
 ### Die wichtigsten Befehle
 
+```
+FROM ubuntu:latest
+RUN apt-get update && apt-get install nginx
+ADD /hostPfad/quelle /containerPfad/ziel
+VOLUME /pfad
+EXPOSE 8080
+CMD nginx
+```
+
+@[1](Legt BaseImage fest. Es dient als Grundlage des Image.)
+@[2](Führt einen Befehl im Container aus. In diesem Fall wird nginx installiert.)
+@[3](Kopiert die Datei `quelle` vom Host in den Container unter dem Namen `ziel`.)
+@[4](Der Ordner `/pfad` wird automatisch persisitert.)
+@[5](Der Port 8080 des Containers wird freigegeben.)
+@[6](Beim Start des Containers wird `nginx` mit PID 1 gestartet.)
+
 +++
 
 ### Build
+
+```
+docker build -t maxmustermann/nginx:latest /pfad
+docker build -t maxmustermann/nginx:latest .
+docker build --no-cache -t maxmustermann/nginx:latest .
+```
+
+@[1](Nimmt das Dockerfile im Ordner `/pfad` und baut das Image mit dem gegebenen Namen.)
+@[2](Befindet man sich im Ordner mit em Dokerfile, kann diese Form verwendet werden.)
+@[3](Sollen alle Schritte des Build neu ausgeführt werden, kann der Cache deaktiviert werden.)
 
 ---
 
