@@ -354,13 +354,34 @@ docker build --no-cache -t maxmustermann/nginx:latest .
 
 ### Bauen mit Cache
 
+* Jeder Befehl im Dockerfile wird als deterministisch betrachtet
+* Das Ergebnis eines Befehls wird gecached
+  * Problem bei nicht deterministischen Befehlen
+* Lösung
+  * Befehle mit `&&` verketten. z.B.: `RUN apt-get update && apt-get install nginx`
+  * `docker build` mit Parameter `--no-cache` aufrufen
+
 +++
 
 ### Signals vom Host
 
+* Container wird vom Host gestoppt
+* Der Prozess mit PID 1 im Container erhält SIGTERM
+* Laufen mehrere Prozesse im Container, muss der mit PID 1 diese beenden
+* Lösung
+  * Supervisor Script
+  * Startet und Stoppt alle benötigten Prozesse
+
 +++
 
 ### Persistenz im Schwarm
+
+* Container haben jeweils eigene Volumes lokal auf dem Knoten
+* Named Volumes führen zu Kollisionen bei mehreren Containern pro Knoten
+* Lösung
+  * Mittels Constraints können Container auf bestimmte Knoten fixiert werden
+  * Unterläuft Trennung von Knoten und Containern
+  * _Besser:_ DB Cluster ausßerhalb des Swarms
 
 ---
 
