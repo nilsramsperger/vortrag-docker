@@ -6,7 +6,7 @@ Zum starten, [GitPitch](https://gitpitch.com/nilsramsperger/vortrag-docker) klic
 
 * [ ] Kapitel "Infrastruktur" erstllen
 * [x] Kapitel "Stolpersteine" erstellen
-* [ ] Kapitel "Sicherheit" erstellen
+* [x] Kapitel "Sicherheit" erstellen
 
 ## Bekannte Probleme
 

@@ -355,25 +355,27 @@ docker build --no-cache -t maxmustermann/nginx:latest .
   * Supervisor Script
   * Startet und Stoppt alle benötigten Prozesse
 
-+++
-
-### Persistenz im Schwarm
-
-* Container haben jeweils eigene Volumes lokal auf dem Knoten
-* Named Volumes führen zu Kollisionen bei mehreren Containern pro Knoten
-* Lösung
-  * Mittels Constraints können Container auf bestimmte Knoten fixiert werden
-  * Unterläuft Trennung von Knoten und Containern
-  * _Besser:_ DB Cluster ausßerhalb des Swarms
-
 ---
 
 ## Sicherheit
 
 +++
 
-### DockerDaemon benötigt root
+### Docker Engine benötigt root
+
+* Docker greift tief in Host System ein, daher wird root Recht benötigt
+* Docker kann über Socket gesteuert werden
+  * Container mit Zugriff darauf können theoretisch auf dem Host mit root Recht agieren
+* Initialer Prozess im Container läuft als root
+  * Weitere Prozesse sollten unter Funktionsusern gestartet werden
+  * User Namespaces verwenden
 
 +++
 
 ### User Namespaces
+
+* Mapping von Usern
+  * Standard User auf Host
+  * root im Container
+* Kein root Recht auf Host, im Fall eines Ausbruchs aus dem Container
+* User Namaspaces müssen explizit aktiviert werden! 
