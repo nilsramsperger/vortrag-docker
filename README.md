@@ -5,7 +5,6 @@ Zum starten, [GitPitch](https://gitpitch.com/nilsramsperger/vortrag-docker) klic
 ## TODO
 
 * [ ] Kapitel "Infrastruktur" erstllen
-* [ ] Kapitel "Swarm" erstellen
 * [x] Kapitel "Stolpersteine" erstellen
 * [ ] Kapitel "Sicherheit" erstellen
 

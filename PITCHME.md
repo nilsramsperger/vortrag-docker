@@ -330,23 +330,6 @@ docker build --no-cache -t maxmustermann/nginx:latest .
 
 ---
 
-## Swarm
-### Skalierung durch Cluster
-
-+++
-
-### Was ist Swarm
-
-+++
-
-### Swarm verwalten
-
-+++
-
-### Services verwalten
-
----
-
 ## Stolpersteine
 ### Eigenarten und Wissenswertes
 
