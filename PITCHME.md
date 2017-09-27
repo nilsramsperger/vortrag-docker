@@ -312,21 +312,38 @@ docker build --no-cache -t maxmustermann/nginx:latest .
 
 ### DockerHub
 
+* Registry für Images
+* Automatische Builds
+
 +++
 
 ### DockerCloud
+
+* Registry für Images
+* Automatische Builds
+* Verwaltung von Docker Swarm
 
 +++
 
 ### DockerStore
 
+* Frontend zur Suche von Images
+* Quellen
+  * DockerHub (freie Images)
+  * Kommerzielle Images
+
 +++
 
 ### Trusted Registry
 
+* Registry für Images
+* On Premise 
+
 +++
 
-### Docker Data Center
+### Docker EE
+
+* 
 
 ---
 
