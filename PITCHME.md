@@ -371,6 +371,16 @@ docker build --no-cache -t maxmustermann/nginx:latest .
 * Lösung
   * Supervisor Script
   * Startet und Stoppt alle benötigten Prozesse
+  
++++
+
+### Container Namen im Netzwerk
+
+* Container werden über Namen adressiert
+* Contianer Namen sind case sensitive
+* ULRs sind **nicht** case sensitive
+* Container Namen müssen vollständig klein geschrieben werden
+  * Ansonsten kann es zu Problemen mit der Ereichbarkeit kommen
 
 ---
 
