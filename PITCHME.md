@@ -142,7 +142,7 @@ docker start -it test
 docker rm test
 ```
 
-@[1](Startet einen neuen Ubuntu Container und verbindet auf dessen Console. Das Image wird automatisch runtergeladen)
+@[1](Startet einen neuen Ubuntu Container und verbindet auf dessen Console)
 @[2](Der Container wird verlassen und beendet)
 @[3](Startet den Container erneut)
 @[4](Löscht den Container)
@@ -156,8 +156,8 @@ docker run -it --name test -v /dir1:/dir2 ubuntu:latest
 docker run -it --name test -v volName:/dir2 ubuntu:latest
 ```
 
-@[1](Bindet `/dir1` vom Host als `/dir2` im Container ein)
-@[2](Bindet das Volume volName als `/dir2` im Container ein)
+@[1](Bindet ein Verzeichnis vom Host ein)
+@[2](Bindet ein Named Volume ein)
 
 +++
 
@@ -169,8 +169,8 @@ docker start test
 docker stop test
 ```
 
-@[1](Erstellt einen Container, der beim Start das Programm `server` ausführt)
-@[2](Startet den Container. Der Container stoppt automatisch bei Programmende)
+@[1](Erstellt einen Container und führt nach dessen Start einen Befehl aus)
+@[2](Startet den Container)
 @[3](Stoppt den Container)
 
 +++
@@ -203,7 +203,7 @@ docker rm test
 
 @[1](Es werden alle laufenden Container angezeigt)
 @[2](Es werden alle Container angezeigt)
-@[3](Löscht den Container mit Namen `test`)
+@[3](Löscht den Container)
 
 +++
 
@@ -216,8 +216,8 @@ docker pull imageName
 ```
 
 @[1](Listet alle lokalen Images auf)
-@[2](Löscht das Image mit Namen `imageName`)
-@[3](Lädt das Image mit Namen `imageName` von DockerHub)
+@[2](Löscht ein Image)
+@[3](Lädt ein Image von DockerHub)
 
 +++
 
@@ -229,7 +229,7 @@ docker volume rm volName
 ```
 
 @[1](Listet alle Volumes auf)
-@[2](Löscht das Volume mit Namen `volName`)
+@[2](Löscht ein Volume)
 
 ---
 
@@ -248,10 +248,10 @@ docker commit baustelle namespace/meinimage:latest
 docker run -it --name test namespace/meinimage:latest
 ```
 
-@[1](Startet einen interaktiven Container mit Namen `baustelle`)
+@[1](Startet einen interaktiven Container)
 @[2](Beliebige Befehle im Container ausführen um benötigte Programme zu installieren und einzurichten)
 @[3](Beendet den Container)
-@[4](Speichert den Container `baustelle` im Namespace `namespace` unter dem Namen `meinimage` mit dem Tag `latest`)
+@[4](Speichert den Container als Image)
 @[5](Erstellt einen neuen interaktiven Container aus dem erstellten Image)
 
 +++
@@ -279,15 +279,15 @@ RUN apt-get update && apt-get install nginx
 ADD /hostPfad/quelle /containerPfad/ziel
 VOLUME /pfad
 EXPOSE 8080
-CMD nginx
+CMD ["nginx"]
 ```
 
-@[1](Legt BaseImage fest. Es dient als Grundlage des Image)
-@[2](Führt einen Befehl im Container aus. In diesem Fall wird nginx installiert)
-@[3](Kopiert die Datei `quelle` vom Host in den Container unter dem Namen `ziel`)
-@[4](Der Ordner `/pfad` wird automatisch persisitert)
+@[1](Legt das zu verwendende BaseImage fest)
+@[2](Führt einen Befehl im Container aus)
+@[3](Kopiert die Datei vom Host in den Container)
+@[4](Legt für einen Ordner ein Volume an)
 @[5](Der Port 8080 des Containers wird freigegeben)
-@[6](Beim Start des Containers wird `nginx` mit PID 1 gestartet)
+@[6](Der beim Containerstart auszuführende Befehl)
 
 +++
 
@@ -299,9 +299,9 @@ docker build -t maxmustermann/nginx:latest .
 docker build --no-cache -t maxmustermann/nginx:latest .
 ```
 
-@[1](Nimmt das Dockerfile im Ordner `/pfad` und baut das Image mit dem gegebenen Namen)
-@[2](Befindet man sich im Ordner mit em Dokerfile, kann diese Form verwendet werden)
-@[3](Sollen alle Schritte des Build neu ausgeführt werden, kann der Cache deaktiviert werden)
+@[1](Baut ein Image mit dem gegebenen Namen aus einem Dockerfile am gegebenen Pfad)
+@[2](Bauen im Verzeichnis des Dockerfiles)
+@[3](Bauen ohne Cache)
 
 ---
 
