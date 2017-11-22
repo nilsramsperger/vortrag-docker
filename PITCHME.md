@@ -171,7 +171,7 @@ docker stop test
 
 @[1](Erstellt einen Container, der beim Start das Programm `server` ausführt)
 @[2](Startet den Container. Der Container stoppt automatisch bei Programmende)
-@[3](Stoppt den Container.)
+@[3](Stoppt den Container)
 
 +++
 
@@ -203,7 +203,7 @@ docker rm test
 
 @[1](Es werden alle laufenden Container angezeigt)
 @[2](Es werden alle Container angezeigt)
-@[3](Löscht den Container mit Namen `test`. Ein Container ohne Namen kann über dessen ID adressiert werden)
+@[3](Löscht den Container mit Namen `test`)
 
 +++
 
@@ -285,7 +285,7 @@ CMD nginx
 @[1](Legt BaseImage fest. Es dient als Grundlage des Image)
 @[2](Führt einen Befehl im Container aus. In diesem Fall wird nginx installiert)
 @[3](Kopiert die Datei `quelle` vom Host in den Container unter dem Namen `ziel`)
-@[4](Der Ordner `/pfad` wird automatisch persisitert.)
+@[4](Der Ordner `/pfad` wird automatisch persisitert)
 @[5](Der Port 8080 des Containers wird freigegeben)
 @[6](Beim Start des Containers wird `nginx` mit PID 1 gestartet)
 
