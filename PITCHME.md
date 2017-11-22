@@ -156,8 +156,8 @@ docker run -it --name test -v /dir1:/dir2 ubuntu:latest
 docker run -it --name test -v volName:/dir2 ubuntu:latest
 ```
 
-@[1](Bindet _/dir1_ vom Host als _/dir2_ im Container ein.)
-@[2](Bindet das Volume _volName_ als _/dir2_ im Container ein.)
+@[1](Bindet _/dir1_ vom Host als _/dir2_ im Container ein)
+@[2](Bindet das Volume volName als /dir2 im Container ein)
 
 +++
 
