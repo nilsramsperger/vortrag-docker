@@ -1,6 +1,6 @@
 ### Die wichtigsten Befehle
 
-```dockerfile
+```Dockerfile
 FROM ubuntu:latest
 RUN apt-get update && apt-get install nginx
 ADD /hostPfad/quelle /containerPfad/ziel
