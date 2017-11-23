@@ -135,7 +135,7 @@
 
 ### Interaktive Container
 
-```
+```Bash
 docker run -it --name test ubuntu:latest
 exit
 docker start -it test
@@ -151,25 +151,25 @@ docker rm test
 
 ### Einbinden von Volumes
 
-```
+```Bash
 docker run -it --name test -v /dir1:/dir2 ubuntu:latest
 docker run -it --name test -v volName:/dir2 ubuntu:latest
 ```
 
-@[1](Bindet ein Verzeichnis vom Host ein)
-@[2](Bindet ein Named Volume ein)
+@[1](Bindet das Verzeichnis `/dir1` vom Host im Container als `/dir2` ein)
+@[2](Bindet das Named Volume `volName` im Container als `/dir2` ein)
 
 +++
 
 ### Container im Hintergrund
 
-```
+```Bash
 docker create --name test ubuntu:latest server
 docker start test
 docker stop test
 ```
 
-@[1](Erstellt einen Container und führt nach dessen Start einen Befehl aus)
+@[1](Erstellt einen Container und führt nach dessen Start den Befehl `server` aus)
 @[2](Startet den Container)
 @[3](Stoppt den Container)
 
@@ -177,7 +177,7 @@ docker stop test
 
 ### Freigeben von Ports
 
-```
+```Bash
 docker create --name test -p 8080:80 ubuntu:latest
 ```
 
@@ -195,7 +195,7 @@ docker create --name test -p 8080:80 ubuntu:latest
 
 ### Container verwalten
 
-```
+```Bash
 docker ps
 docker ps -a
 docker rm test
@@ -203,33 +203,33 @@ docker rm test
 
 @[1](Es werden alle laufenden Container angezeigt)
 @[2](Es werden alle Container angezeigt)
-@[3](Löscht den Container)
+@[3](Löscht den Container mit Namen `test`)
 
 +++
 
 ### Images verwalten
 
-```
+```Bash
 docker images
 docker rmi imageName
 docker pull imageName
 ```
 
 @[1](Listet alle lokalen Images auf)
-@[2](Löscht ein Image)
-@[3](Lädt ein Image von DockerHub)
+@[2](Löscht das Image mit Namen `imageName`)
+@[3](Lädt das Image `imageName` von DockerHub)
 
 +++
 
 ### Volumes verwalten
 
-```
+```Bash
 docker volume ls
 docker volume rm volName
 ```
 
 @[1](Listet alle Volumes auf)
-@[2](Löscht ein Volume)
+@[2](Löscht das Volume `volName`)
 
 ---
 
@@ -240,7 +240,7 @@ docker volume rm volName
 
 ### Manuelle Erstellung
 
-```
+```Bash
 docker run -it --name baustelle ubuntu:latest
 apt-get install ...
 exit
@@ -273,7 +273,7 @@ docker run -it --name test namespace/meinimage:latest
 
 ### Die wichtigsten Befehle
 
-```
+```DockerFile
 FROM ubuntu:latest
 RUN apt-get update && apt-get install nginx
 ADD /hostPfad/quelle /containerPfad/ziel
@@ -293,7 +293,7 @@ CMD ["nginx"]
 
 ### Build
 
-```
+```Bash
 docker build -t maxmustermann/nginx:latest /pfad
 docker build -t maxmustermann/nginx:latest .
 docker build --no-cache -t maxmustermann/nginx:latest .
@@ -366,6 +366,18 @@ docker build --no-cache -t maxmustermann/nginx:latest .
   * Supervisor Script
   * Startet und Stoppt alle benötigten Prozesse
   
++++
+
+### Signals vom Host (Teil 2)
+
+* Die Art der Verwendung von `CMD` und `ENTRYPOINT` im Dockefile ist wichtig
+* `CMD ["server", "--param"]` 
+  * Startet `server` direkt mit PID 1
+* `CMD server --param`
+  * Kapselt den Befehl in `sh -c "..."`
+  * `sh` läuft mit PID 1
+  * Signals gehen verloren
+
 +++
 
 ### Container Namen im Netzwerk
