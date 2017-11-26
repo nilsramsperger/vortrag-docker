@@ -273,7 +273,7 @@ docker run -it --name test namespace/meinimage:latest
 
 ### Die wichtigsten Befehle
 
-```Dockerfile
+```Bash
 FROM ubuntu:latest
 RUN apt-get update && apt-get install nginx
 ADD /hostPfad/quelle /containerPfad/ziel
